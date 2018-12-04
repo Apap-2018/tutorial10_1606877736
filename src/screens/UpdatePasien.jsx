@@ -15,7 +15,6 @@ export class UpdatePasien extends React.Component {
 
 	componentDidMount(){
 		Appointment.getDetailPasien(this.props.match.params.id).then(response => {
-			console.log('Masuk')
 			if (response.status === 200) {
 				this.setState({
 					loading : false,
@@ -42,9 +41,7 @@ export class UpdatePasien extends React.Component {
 				let name = key.split('.');
 				if (name.length > 1) {
 					let last = name.pop()
-					console.log(last)
 					name.reduce((prev, next) => {
-						console.log(prev[next] || {})
 						return prev[next] = prev[next] || {};
 					}, dataJson)[last] = val
 				} else {
